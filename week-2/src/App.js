@@ -1,22 +1,32 @@
 // src/App.js
 
 import React from "react";
-import { useSelector, useDispatch } from "react-redux"; // import 해주세요.
+import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addNumber, minusNumber } from "./redux/modules/counter";
 
 const App = () => {
+  const [number, setNumber] = useState(0);
+  const globalNumber = useSelector((state) => state.counter.number);
   const dispatch = useDispatch();
-  const number = useSelector((state) => state.counter.number);
+  const onChangeHandler = (event) => {
+    const { value } = event.target;
+    setNumber(+value);
+  };
+  const onClickAddNumberHandler = () => {
+    dispatch(addNumber(number));
+  };
+  const onClickMinusNumberHandler = () => {
+    dispatch(minusNumber(number));
+  };
   console.log(number);
+
   return (
     <div>
-      {number}
-      <button
-        onClick={() => {
-          dispatch({ type: "PLUS_ONE" });
-        }}
-      >
-        +1
-      </button>
+      {globalNumber}
+      <input type="number" onChange={onChangeHandler} />
+      <button onClick={onClickAddNumberHandler}>더하기</button>
+      <button onClick={onClickMinusNumberHandler}>빼기</button>
     </div>
   );
 };
