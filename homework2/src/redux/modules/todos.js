@@ -4,8 +4,7 @@ const DELETE_TODO = "DELETE_TODO";
 const TOGGLE_TODO = "TOGGLE_TODO";
 const GET_ID = "GET_ID";
 
-//  Action Creator
-// Todo를 추가하는 action crator
+// Todo 추가
 export const addTodo = (payload) => {
   return {
     type: ADD_TODO,
@@ -13,7 +12,7 @@ export const addTodo = (payload) => {
   };
 };
 
-// Todo를 지우는 action creator
+// Todo 삭제
 export const deleteTodo = (payload) => {
   return {
     type: DELETE_TODO,
@@ -21,7 +20,7 @@ export const deleteTodo = (payload) => {
   };
 };
 
-// Todo를 isDone를 변경하는 action creator
+// Todo done 변경
 export const toggleTodo = (payload) => {
   return {
     type: TOGGLE_TODO,
@@ -29,7 +28,7 @@ export const toggleTodo = (payload) => {
   };
 };
 
-// 상세 페이지에서 특정 Todo만 조회하는 action creator
+// 상세 페이지에서 특정 Todo만 조회
 export const getID = (payload) => {
   return {
     type: GET_ID,
