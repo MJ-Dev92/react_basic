@@ -3,7 +3,7 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addNumber, minusNumber } from "./redux/modules/counterSlice";
+import { __addNumber, minusNumber } from "./redux/modules/counterSlice";
 
 const App = () => {
   const [number, setNumber] = useState(0);
@@ -15,7 +15,7 @@ const App = () => {
     setNumber(+value);
   };
   const onClickAddNumberHandler = () => {
-    dispatch(addNumber(number));
+    dispatch(__addNumber(number));
   };
   const onClickMinusNumberHandler = () => {
     dispatch(minusNumber(number));
