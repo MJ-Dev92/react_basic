@@ -20,7 +20,6 @@ const App = () => {
   const onClickMinusNumberHandler = () => {
     dispatch(minusNumber(number));
   };
-  console.log(number);
   return (
     <div>
       {globalNumber}
